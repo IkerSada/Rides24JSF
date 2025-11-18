@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Buscar viajes</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:messages globalOnly="false" />
+        <h3>Buscar viajes por ciudad de salida</h3>
+
+        <h:panelGrid columns="2">
+            <h:outputLabel for="city" value="Ciudad salida:" />
+            <h:selectOneMenu id="city" value="#{queryRidesBean.selectedCity}">
+                <f:selectItems value="#{queryRidesBean.departCities}" var="c" itemValue="#{c}" itemLabel="#{c}" />
+            </h:selectOneMenu>
+
+            <h:outputLabel value=" " />
+            <h:commandButton value="Buscar" action="#{queryRidesBean.search}" />
+        </h:panelGrid>
+
+        <h:panelGroup rendered="#{not empty queryRidesBean.results}">
+            <h3>Resultados</h3>
+            <h:dataTable value="#{queryRidesBean.results}" var="r">
+                <h:column><f:facet name="header">ID</f:facet>#{r.id}</h:column>
+                <h:column><f:facet name="header">Salida</f:facet>#{r.depart}</h:column>
+                <h:column><f:facet name="header">Destino</f:facet>#{r.destination}</h:column>
+            </h:dataTable>
+        </h:panelGroup>
+
+        <br/>
+        <h:commandButton value="Crear viaje" action="CreateRide.xhtml?faces-redirect=true" />
+    </h:form>
+</h:body>
+</html>
