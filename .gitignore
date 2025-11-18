@@ -1,0 +1,29 @@
+# Eclipse
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Archivos de servidor (TU ARCHIVO DE SERVERS)
+Servers/
+*.server
+
+# Archivos compilados
+*.class
+*.war
+*.ear
+
+# Logs
+*.log
+
+# Archivos de configuración específicos
+.classpath
+.project
+/target/
